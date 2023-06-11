@@ -35,7 +35,7 @@ Take a look at the daily_activity data.
 head(daily_activity)
 ```
 
-Identify all the columsn in the daily_activity data.
+Identify all the columns in the daily_activity data.
 ```{r}
 colnames(daily_activity)
 ```
@@ -45,7 +45,7 @@ Take a look at the sleep_day data.
 head(sleep_day)
 ```
 
-Identify all the columsn in the daily_activity data.
+Identify all the columns in the daily_activity data.
 ```{r}
 colnames(sleep_day)
 ```
