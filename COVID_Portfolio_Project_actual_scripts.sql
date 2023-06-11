@@ -1,10 +1,17 @@
+/*
+Covid 19 Data Exploration 
+
+Skills used: Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views, Converting Data Types
+
+*/
+
 Select *
 From PortfolioProject..CovidDeaths
 Order By 3,4
 
---Select *
---From PortfolioProject..CovidVaccinations
---Order By 3,4
+Select *
+From PortfolioProject..CovidVaccinations
+Order By 3,4
 
 --Select data to be used
 Select location, date, total_cases, new_cases, total_deaths, population
@@ -12,23 +19,23 @@ From PortfolioProject..CovidDeaths
 Order By 1,2
 
 --Looking at total cases vs total deaths
---shows the likelihood of dying if you contact covid in Nigeria (your country)
+--shows the likelihood of dying if you contact covid in Nigeria
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 From PortfolioProject..CovidDeaths
-where location = 'Nigeria' --where location like '%states%'
+where location = 'Nigeria'
 Order By 1,2
 
 --Looking at the total cases vs the population
 --Shows what percentage of population got covid
 Select location, date, population, total_cases, (total_cases/population)*100 as PercentagePopulationInfected
 From PortfolioProject..CovidDeaths
-where location = 'Nigeria' --where location like '%states%'
+where location = 'Nigeria' 
 Order By 1,2
 
 --Looking at Countries with highest infection rates compared to population
 Select location, population, MAX(total_cases) as HighestInfectionCount, MAX((total_cases/population)*100) as PercentagePopulationInfected
 From PortfolioProject..CovidDeaths
---where location = 'Nigeria' --where location like '%states%'
+--where location = 'Nigeria'
 Group By location, population
 Order By 4 DESC
 
